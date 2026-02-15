@@ -107,6 +107,29 @@ Testing WHI5 → SWI4 relationship:
 - **Convergence: Yes** (skill increases with library size)
 - Conclusion: **CCM detects causality invisible to correlation**
 
+### Updated Results (Feb 15, 2026)
+
+- `YEAST_CELL_CYCLE_GENES` mapping updated to canonical Affymetrix probes (one probe per gene):
+   - CLN3: 11369_at
+   - SWI4: 5596_at
+   - CLB2: 7651_at
+   - WHI5: 8464_at
+   - YHP1: 6010_at
+   - MBP1: 6542_at
+   - CLN2: 7993_at
+   - CLB5: 7652_at
+
+- Real-data run (GSE3431) summary:
+   - Genes analyzed: 8 (cell cycle genes)
+   - Predictable: 8/8 = 100% (mean prediction skill ≈ 0.9974)
+   - Nonlinear (single-gene S-map): 0/8 = 0% (Δskill small)
+   - Example CCM pairs:
+      - WHI5 → SWI4: Pearson ρ = 0.3013, CCM max skill = 0.9118 (convergent)
+      - SWI4 → CLN3: Pearson ρ = -0.0755, CCM max skill = 0.9998 (convergent)
+      - CLB2 → CLN3: Pearson ρ = -0.2624, CCM max skill = 0.9993 (convergent)
+
+These updates reflect a recent run of `geo_data_analysis.py` using `probeGPL90set.txt` for probe→gene mapping and replace earlier placeholder probe IDs.
+
 ---
 
 ## Mathematical Framework
@@ -205,6 +228,13 @@ tidyverse (optional, for data handling)
 - At least 20-30 time points recommended (more better)
 - Synchronized cell populations (for bulk methods)
 - Clean expression values (normalized/log-scale)
+
+## Data Sources
+
+The real GEO dataset used in validation (GSE3431) and its platform annotation are available at:
+
+- GEO series matrix (GSE3431): https://ftp.ncbi.nlm.nih.gov/geo/series/GSE3nnn/GSE3431/matrix/
+- GPL90 platform annotation (used for probe→gene mapping): https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL90&view=data
 
 ---
 
