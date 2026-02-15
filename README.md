@@ -136,7 +136,19 @@ Testing WHI5 → SWI4 relationship:
       - CLN2 → CLB2: Linear = 1.0000, Nonlinear = 0.8034, Δskill = -0.1966 (Nonlinear? False)
       - Summary: 0/5 interactions met Δskill > 0.05; mean Δskill = -0.2810
 
-These updates reflect a recent run of `geo_data_analysis.py` using `probeGPL90set.txt` for probe→gene mapping and replace earlier placeholder probe IDs.
+   These updates reflect a recent run of `geo_data_analysis.py` using `probeGPL90set.txt` for probe→gene mapping and replace earlier placeholder probe IDs.
+
+   ### Simple illustrative examples (scripted)
+
+   A minimal demonstration script `simple_causation_example.py` shows how causal relationships can be missed by linear correlation but are evident from state-dependent inspection or causal methods. The exact stdout from a Feb 15, 2026 run is saved in `simple_causation_example_results.txt`.
+
+   Brief highlights from the run:
+
+   - Example 1 (sine + state-dependent damping): Pearson ρ = 0.0359 (p = 0.7522); Gene B mean at |A|>0.8 = 0.934 vs at |A|<0.2 = 0.091.
+   - Example 2 (checkpoint/pulsed regulator): Pearson ρ = 0.5984 (p = 0.0000); WHI5 mean when SWI4>0.5 = 0.499 vs when SWI4<-0.5 = 0.001.
+   - Example 3 (micro table): X = [-1,-1,0,0,1,1], Y = |X| → Pearson ρ = 0.0000, but Y = |X| is an obvious causal mapping.
+
+   See `simple_causation_example_results.txt` for full output and explanations.
 
 ### Data Quality Analysis (fix_data_quality.py)
 

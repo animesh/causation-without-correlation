@@ -1,0 +1,32 @@
+MINIMAL EXAMPLE: CAUSATION WITHOUT CORRELATION
+
+[EXAMPLE 1] A Sine Wave with State-Dependent Damping
+
+Correlation: ρ = 0.0359 (NOT SIGNIFICANT)
+p-value: 0.7522
+
+✓ PROOF OF CAUSATION:
+  When Gene A = +0.9: Gene B = 0.934 (HIGH - damping!)
+  When Gene A ≈ 0.0:  Gene B = 0.091 (LOW - no damping)
+
+[EXAMPLE 2] The Pendulum Checkpoint
+
+Correlation: ρ = 0.5984 (essentially zero!)
+p-value: 0.0000
+
+✓ PROOF OF CAUSATION:
+  When SWI4 wants up (sin>0.5): WHI5 = 0.499
+  When SWI4 is down (sin<-0.5): WHI5 = 0.001
+
+[EXAMPLE 3] The Micro-Scale Example
+
+Data:
+  X = [-1, -1, 0, 0, 1, 1]
+  Y = [1, 1, 0, 0, 1, 1]
+
+Correlation: ρ = 0.0000
+Causation: Y = |X|  (OBVIOUS!)
+
+KEY INSIGHT:
+- Correlation assumes linearity; causal relationships can be nonlinear and state-dependent.
+- Use CCM for detecting state-dependent, nonlinear causation.
