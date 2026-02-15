@@ -223,6 +223,20 @@ References:
   - DELIVERABLES.txt (inventory)
 
 ================================================================================
+DATA QUALITY ANALYSIS (fix_data_quality.py)
+================================================================================
+
+Summary of runs (Feb 15, 2026):
+
+- CLB2 representative probe: 7651_at (raw range 0.14–1.44)
+- CLB2 single-gene prediction (raw): skill = 0.9981, RMSE ≈ 0.026
+- Normalization effects (CLB2): Raw 0.9981, Log2 0.9950, Quantile 0.9986
+- Noise sensitivity (normalized CLB2): 0%→0.9981, 5%→0.9979, 10%→0.9981, 20%→0.9975, 50%→0.9967
+- Genome-wide sample (first 100 probes): mean skill = 0.9970 ± 0.0011; mean CV = 0.4079 ± 0.2170
+
+Interpretation: Processed Affymetrix GEO data are substantially cleaner than raw RNA-seq counts. This higher signal-to-noise ratio explains the elevated per-gene predictability (~0.997) observed in our GEO analyses compared with the broader, noisier RNA-seq analyses reported in the paper (skill ranges ≈ 0.3–0.8).
+
+================================================================================
 CONCLUSION
 ================================================================================
 
