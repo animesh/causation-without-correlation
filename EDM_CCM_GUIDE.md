@@ -268,6 +268,8 @@ is_nonlinear = nonlinear_skill > (linear_skill + 0.05)
 print(f"\nLinear skill: {linear_skill:.3f}")
 print(f"Nonlinear skill: {nonlinear_skill:.3f}")
 print(f"Is nonlinear: {is_nonlinear}")
+
+Note: In a real-data run on GEO GSE3431 (Feb 15, 2026), an interaction-level S-map applied to CCM cross-predictions produced mean Δskill = -0.2810 (0/5 interactions exceeded Δskill > 0.05). This illustrates that nonlinearity may be absent or reversed at the interaction-level S-map tests on very clean, synchronized microarray data; see REAL_DATA_VALIDATION_REPORT.md for details.
 ```
 
 ### Step 6: Convergent Cross Mapping (CCM)

@@ -137,6 +137,11 @@ The paper explicitly notes synchronization artifacts:
 
 Our finding is CONSISTENT with paper's methodology notes.
 
+INTERACTION NONLINEARITY (exact run results):
+  - Interaction-level mean Δskill = -0.2810 (Feb 15, 2026 run of `fix_nonlinearity_ccm.py`)
+  - Interactions with Δskill > 0.05: 0/5
+  - Individual interaction Δskill values ranged from -0.4022 to -0.1886
+
 ================================================================================
 WHAT YOU CAN DO WITH THIS
 ================================================================================

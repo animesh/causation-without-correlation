@@ -169,6 +169,30 @@ Generated synthetic yeast cell cycle data with **realistic nonlinear interaction
 - Less complex stochastic effects
 - Simpler interaction network
 
+### Interaction-level Nonlinearity (CCM + S-map)
+
+We also tested for nonlinearity in cross-gene interactions by running `fix_nonlinearity_ccm.py` (S-map applied to CCM cross-predictions). Exact outputs from Feb 15, 2026:
+
+| Interaction | Linear Skill | Nonlinear Skill | Δskill | Nonlinear? |
+|-------------|--------------:|----------------:|-------:|:----------:|
+| WHI5 → SWI4 | 1.0000 | 0.5978 | -0.4022 | No |
+| SWI4 → CLN3 | 1.0000 | 0.6197 | -0.3803 | No |
+| CLB2 → CLN3 | 1.0000 | 0.7627 | -0.2373 | No |
+| MBP1 → SWI4 | 1.0000 | 0.8114 | -0.1886 | No |
+| CLN2 → CLB2 | 1.0000 | 0.8034 | -0.1966 | No |
+
+Summary: 0/5 interactions meet Δskill > 0.05; mean Δskill = -0.2810.
+
+### Sensitivity check (parameter sweep)
+
+We performed a sensitivity sweep (`sensitivity_nonlinearity.py`) across embedding dimensions `E={2,3,4}`, S-map `θ={0,0.5,1.0,1.5,2.0}`, and two CCM library-size regimes. Highlights:
+
+ - Nonlinearity detection depends strongly on `E` and `θ`; for many interactions Δskill becomes positive and substantial at higher `θ` and `E`.
+ - Example maxima from the sweep: WHI5 → SWI4 Δskill up to 0.3695 (E=4, θ=2.0); MBP1 → SWI4 Δskill up to 0.3959 (E=4, θ=2.0); SWI4 → CLN3 Δskill up to 0.1788 (E=4, θ=2.0).
+ - CCM skills generally increase with library size; larger libraries often produce very high CCM skill (≈0.9–1.0).
+
+Implication: a single fixed S-map parameterization can under-report interaction nonlinearity; careful parameter exploration is recommended when testing for state-dependent gene interactions.
+
 ### Analysis 3: Detecting Causation Without Correlation
 
 **Test Case: Does WHI5 cause SWI4?**

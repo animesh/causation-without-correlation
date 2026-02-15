@@ -128,6 +128,14 @@ Testing WHI5 → SWI4 relationship:
       - SWI4 → CLN3: Pearson ρ = -0.0755, CCM max skill = 0.9998 (convergent)
       - CLB2 → CLN3: Pearson ρ = -0.2624, CCM max skill = 0.9993 (convergent)
 
+      - Interaction-level S-map on CCM predictions (`fix_nonlinearity_ccm.py`):
+      - WHI5 → SWI4: Linear = 1.0000, Nonlinear = 0.5978, Δskill = -0.4022 (Nonlinear? False)
+      - SWI4 → CLN3: Linear = 1.0000, Nonlinear = 0.6197, Δskill = -0.3803 (Nonlinear? False)
+      - CLB2 → CLN3: Linear = 1.0000, Nonlinear = 0.7627, Δskill = -0.2373 (Nonlinear? False)
+      - MBP1 → SWI4: Linear = 1.0000, Nonlinear = 0.8114, Δskill = -0.1886 (Nonlinear? False)
+      - CLN2 → CLB2: Linear = 1.0000, Nonlinear = 0.8034, Δskill = -0.1966 (Nonlinear? False)
+      - Summary: 0/5 interactions met Δskill > 0.05; mean Δskill = -0.2810
+
 These updates reflect a recent run of `geo_data_analysis.py` using `probeGPL90set.txt` for probe→gene mapping and replace earlier placeholder probe IDs.
 
 ### Data Quality Analysis (fix_data_quality.py)
